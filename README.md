@@ -2,8 +2,10 @@
 
 ## Install and load required packages
 ```r
-install.packages(tidyquant)
+install.packages('tidyquant')
+install.packages('fpp2', dependencies=TRUE)
 library(tidyquant)
+library(fpp2)
 library(ggplot2)
 ```
 
@@ -50,7 +52,30 @@ test_set %>%
 ![Test Plot](./img/test_plot.png)
 
 ## Identify the parameters for the ARIMA model
-Time plot for ACF and PACF need to be made
+We are using order 2
 ```r
-
+train_cleaned = subset(train_set, select = -c(close, high, low, open, symbol, volume))
+(fit <- data=train_cleaned	)
 ```
+![Train Arima Graphs](./img/train_arima_params.png)
+
+## Plot of Fit
+```r
+autoplot(fit)
+```
+![Fit Plot](./img/train_fit_plot.png)
+
+## Forecast of Fit for the next 150 days (includes May 2020)
+```r
+autoplot(forecast(fit, h=150))
+```
+![Forecast](./img/forecast.png)
+
+Plot of test data
+![Test Plot Conclusion](./img/test_plot_conc.png)
+
+## Conclusion
+Forecast of fit shows that the price of NSE:DMART potentially lies approximately between 1600 and 3000. Throughout the test period it can be seen that the price lies between 2100 and 2500, which is a subset of 1600-3000. 
+
+
+
