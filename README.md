@@ -72,6 +72,7 @@ autoplot(forecast(fit, h=150))
 ![Forecast](./img/forecast.png)
 
 Plot of test data
+
 ![Test Plot Conclusion](./img/test_plot_conc.png)
 
 ## Conclusion
