@@ -18,12 +18,12 @@ test_set = tq_get('DMART.NS', from='2020-05-01', to='2020-05-31', get='stock.pri
 ```r
 head(train_set)
 ```
-![Train Head](./train_head.png)
+![Train Head](./img/train_head.png)
 
 ```r
 head(test_set)
 ```
-![Test Head](./test_head.png)
+![Test Head](./img/test_head.png)
 
 ## Plot the datasets
 ```r
@@ -36,7 +36,7 @@ train_set %>%
        title = "[train] DMART price chart") +
   scale_y_continuous(breaks = seq(0,300,10))
 ```
-![Train Plot](./train_plot.png)
+![Train Plot](./img/train_plot.png)
 ```r
 test_set %>%
   ggplot(aes(x = date, y = adjusted)) +
@@ -47,7 +47,7 @@ test_set %>%
        title = "[test] DMART price chart") +
   scale_y_continuous(breaks = seq(0,300,10))
 ```
-![Test Plot](./test_plot.png)
+![Test Plot](./img/test_plot.png)
 
 ## Identify the parameters for the ARIMA model
 Time plot for ACF and PACF need to be made
